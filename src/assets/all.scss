@@ -1,0 +1,7 @@
+//客製化變數
+//套用BS4使用變數的方法
+@import "~bootstrap/scss/functions";
+//套用自己的變數 添加./helpers/資料夾避免與原始套件路徑衝突
+@import "./helpers/_variables";
+
+@import "~bootstrap/scss/bootstrap";
