@@ -57,14 +57,14 @@ export default {
                 if (OK) {
                   setTimeout(function(){
                     vm.$router.push('/'); //跳轉至首頁
-                  },300)
+                  },200)
                 }
               });
             }else{
               vm.showLoading='d-none';
               swal("Oops", "登入失敗", "error");
             }
-          },1000)
+          },300)
           
         })
     }
