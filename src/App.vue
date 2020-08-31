@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+
     <img src="./assets/logo.png">
     <router-view/>
   </div>
@@ -9,6 +10,11 @@
 import Vue from 'vue';
 export default {
   name: 'App',
+  data(){
+    return{
+
+    }
+  },
   created(){
     const api = `${process.env.API_PATH}/api/${process.env.API_ACCOUNT}/products`;
     //伺服器路徑
@@ -29,6 +35,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

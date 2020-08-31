@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <a href="#" @click.prevent="signOut">登出</a>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -84,11 +85,41 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import swal from 'sweetalert';
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods:{
+    signOut(){
+      const logoutAPI = `${process.env.API_PATH}/logout`;
+      const vm = this;
+      Vue.axios
+        .post(logoutAPI)
+        .then((res)=>{
+          vm.showLoading = '';
+          setTimeout(function(){
+            vm.showLoading='d-none';
+            // console.log(res.data)
+            swal({
+                title: "Congrets!",
+                text: "登出成功",
+                icon: "success"
+              })
+              .then((OK) => {
+                if (OK) {
+                  setTimeout(function(){
+                    vm.$router.push('/login'); //跳轉至首頁
+                  },300)
+                }
+              });
+          },1000)
+          
+        })
     }
   }
 }
@@ -108,7 +139,7 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
+/* a {
   color: #42b983;
-}
+} */
 </style>
