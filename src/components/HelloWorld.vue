@@ -91,7 +91,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
     }
   },
   methods:{
@@ -104,7 +104,7 @@ export default {
           vm.showLoading = '';
           setTimeout(function(){
             vm.showLoading='d-none';
-            // console.log(res.data)
+            // console.log(vm.$options._parentVnode.context.showLoading)
             swal({
                 title: "Congrets!",
                 text: "登出成功",

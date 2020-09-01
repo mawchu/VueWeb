@@ -9,8 +9,10 @@ import VueAxios from 'vue-axios'
 import App from './App'
 import router from './router'
 
+//移除Vue的提示信息
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
+
 //後端的session cookie會存取起來 AXIOS 會自動處理這段
 axios.defaults.withCredentials = true;
 /* eslint-disable no-new */
@@ -18,18 +20,23 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  data:{
+    showLoading:'d-none'
+  }
 })
+//啟用導航守衛
 router.beforeEach((to, from, next) => {
   // console.log('to',to)
   // console.log( 'from',from)
   // console.log( 'next', next)
   if(to.meta.requiresAuth){
-    console.log('這裡需要驗證')
-    const loginAPI = `${process.env.API_PATH}/api/user/check`;
+    // console.log('這裡需要驗證')
+    const checkAPI = `${process.env.API_PATH}/api/user/check`;
       const vm = this;
+      console.log(Vue)
       Vue.axios
-        .post(loginAPI)
+        .post(checkAPI)
         .then((res)=>{
           vm.showLoading = '';
           setTimeout(function(){
@@ -44,7 +51,7 @@ router.beforeEach((to, from, next) => {
             swal("Oops", "請先登入", "error");
             setTimeout(function(){  
               next({
-                path:'/login'
+                path:'/login'//若客戶登出狀態跳轉到登入頁面
               });
             },500)
           },1000)

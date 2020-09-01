@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-
+      <div class="loding-pop" :class="showLoading">
+        <img class="loading" src="./assets/loading.svg" alt="">
+      </div>
     <img src="./assets/logo.png">
     <router-view/>
   </div>
@@ -12,17 +14,17 @@ export default {
   name: 'App',
   data(){
     return{
-
+      showLoading:'d-none'
     }
   },
   created(){
-    const api = `${process.env.API_PATH}/api/${process.env.API_ACCOUNT}/products`;
-    //伺服器路徑
-    //申請的API Path
-    Vue.axios.get(api).then((response) => {
-      console.log(response.data);
-    })
-    console.log(process.env)
+    // const api = `${process.env.API_PATH}/api/${process.env.API_ACCOUNT}/products`;
+    // //伺服器路徑
+    // //申請的API Path
+    // Vue.axios.get(api).then((response) => {
+    //   console.log(response.data);
+    // })
+    // console.log(process.env)
   }
 }
 </script>

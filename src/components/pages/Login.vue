@@ -22,6 +22,7 @@
 
 <script>
 import Vue from 'vue';
+//匯入進來才能使用sweetalert
 import swal from 'sweetalert';
 
 

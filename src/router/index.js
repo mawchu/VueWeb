@@ -12,7 +12,12 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld,
-      meta: { requiresAuth: true }
+      //導航守衛驗證的基準 跳轉到登出介面需要先登入
+      meta: { 
+        requiresAuth: true,
+        feelHappy: true//可以自己設定
+
+      }
     },
     {
       path: '/login',
