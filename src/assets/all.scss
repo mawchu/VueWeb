@@ -5,3 +5,21 @@
 @import "./helpers/_variables";
 
 @import "~bootstrap/scss/bootstrap";
+@import "./_dashboard";
+
+.loding-pop{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100vh;
+    background-color:rgba(0,0,0,.4);
+    z-index:1;
+}
+.loading{
+  position:absolute;
+  top:calc(50vh - 30px);
+  left:calc(50vw - 30px);
+  width: 60px;
+  height: 60px;
+}

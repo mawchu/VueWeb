@@ -3,28 +3,23 @@
       <div class="loding-pop" :class="showLoading">
         <img class="loading" src="./assets/loading.svg" alt="">
       </div>
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
+
 export default {
   name: 'App',
   data(){
     return{
-      showLoading:'d-none'
+      showLoading:'d-none',
+       globalData:'globalData'
     }
   },
   created(){
-    // const api = `${process.env.API_PATH}/api/${process.env.API_ACCOUNT}/products`;
-    // //伺服器路徑
-    // //申請的API Path
-    // Vue.axios.get(api).then((response) => {
-    //   console.log(response.data);
-    // })
-    // console.log(process.env)
+
   }
 }
 </script>
@@ -35,7 +30,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
 }
 </style>

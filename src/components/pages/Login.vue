@@ -57,7 +57,7 @@ export default {
               .then((OK) => {
                 if (OK) {
                   setTimeout(function(){
-                    vm.$router.push('/'); //跳轉至首頁
+                    vm.$router.push('/admin/products').catch(err=>err); //跳轉至首頁
                   },200)
                 }
               });
@@ -124,21 +124,5 @@ export default {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     }
-    .loding-pop{
-      position:absolute;
-      top:0;
-      left:0;
-      width: 100%;
-      height: 100vh;
-      background-color:rgba(0,0,0,.4);
-      z-index:1;
-    }
-    .loading{
-      position:absolute;
-      top:calc(50vh - 30px);
-      left:calc(50vw - 30px);
-      width: 60px;
-      height: 60px;
-      
-    }
+
 </style>
