@@ -57,7 +57,7 @@ export default {
               .then((OK) => {
                 if (OK) {
                   setTimeout(function(){
-                    vm.$router.push('/admin/products').catch(err=>err); //跳轉至首頁
+                    vm.$router.push('/admin/products').catch(err=>err); //跳轉至首頁 catch(err=>err) 修正promise跳錯
                   },200)
                 }
               });
